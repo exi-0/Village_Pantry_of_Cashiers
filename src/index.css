@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Tripadvisor Design System Foundation Tokens */
+  --font-family-primary: 'Trip Sans VF', 'Trip Sans', 'Inter', Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-weight-base: 400;
+  --font-line-height-base: normal;
+
+  /* Typography Scale Tokens */
+  --font-size-xs: 13.33px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 28px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 54px;
+
+  /* Color Palette Tokens */
+  --color-text-primary: #002b11;
+  --color-text-secondary: #38443a;
+  --color-text-tertiary: #888484;
+  --color-surface-strong: #f7f7f7;
+  --color-surface-base: #000000;
+  --color-surface-muted: #ffffff;
+  --color-surface-raised: #b9b7b7;
+
+  /* Spacing Scale Tokens */
+  --space-1: 4px;
+  --space-2: 4.5px;
+  --space-3: 5px;
+  --space-4: 6px;
+  --space-5: 6.5px;
+  --space-6: 7px;
+  --space-7: 8px;
+  --space-8: 9px;
+
+  /* Radius Tokens */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 42px;
+  --radius-step7: 50px;
+  --radius-step8: 1000px;
+
+  /* Motion Tokens */
+  --motion-duration-instant: 100ms;
+  --motion-duration-fast: 200ms;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-family-primary);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-strong);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Universal Accessible Focus Indicator (WCAG 2.2 AA) */
+  :focus-visible {
+    outline: 2px solid var(--color-text-primary) !important;
+    outline-offset: 3px !important;
+    border-radius: var(--radius-xs);
+  }
+
+  /* Interactive elements touch targets (mobile-responsive skill requirement) */
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #002b11;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #004d25;
+}
+
+/* Card hover animation with fast motion token */
+.hover-lift {
+  transition: transform var(--motion-duration-fast) cubic-bezier(0.16, 1, 0.3, 1), box-shadow var(--motion-duration-fast) ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
